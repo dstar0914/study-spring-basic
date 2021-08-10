@@ -3,12 +3,16 @@ package com.study.basic.order;
 import com.study.basic.discount.DiscountPolicy;
 import com.study.basic.member.Member;
 import com.study.basic.member.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository; // interface 에만 의존하도록 수정하였음
     private final DiscountPolicy discountPolicy; // interface 에만 의존하도록 수정하였음
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
